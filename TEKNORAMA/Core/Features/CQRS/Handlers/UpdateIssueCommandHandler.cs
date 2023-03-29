@@ -19,6 +19,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers
             Issue updatedIssue = await _repository.GetByIdAsync(request.Id);
             if (updatedIssue != null)
             {
+                updatedIssue.AppUserId = request.AppUserId;
                 updatedIssue.Subject = request.Subject;
                 updatedIssue.Answer = request.Answer;
                 updatedIssue.Email = request.Email;

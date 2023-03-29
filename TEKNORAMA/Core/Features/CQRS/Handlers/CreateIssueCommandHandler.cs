@@ -18,6 +18,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers
         {
             await _repository.CreateAsync(new Issue
             {
+                AppUserId=request.AppUserId,
                 Subject = request.Subject,
                 Answer = request.Answer,
                 IssueStatus = request.IssueStatus,

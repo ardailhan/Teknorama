@@ -33,5 +33,11 @@ namespace TeknoramaBackOffice.Controllers
             if(result == null) return NotFound();
             return Ok(result);
         }
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateEmployeeTerritoryCommandRequest request)
+        {
+            await _mediator.Send(request);
+            return Created("", request);
+        }
     }
 }

@@ -61,7 +61,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             else if (response.StatusCode == HttpStatusCode.Forbidden) return RedirectToAction("AccessDenied", "Account");
             else return RedirectToAction("Index", "Home");
         }
-        //ORDER CREATE GEREKSİZ OLDU GEREKSEYDİ BOYLE OLACAKTI VE HTTPPOST EKLENECEKTİ 
+        //ORDER CREATE GEREKSİZ OLDU GEREKSEYDİ BOYLE OLACAKTI VE HTTPPOST EKLENECEKTİ
         //public async Task<IActionResult> Create()
         //{
         //    HttpClient client = CreateClient();
