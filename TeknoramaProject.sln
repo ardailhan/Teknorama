@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeknoramaBackOffice", "TEKNORAMA\TeknoramaBackOffice.csproj", "{CC77253A-C75B-4B4D-B2C3-C0C865ECBCA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeknoramaUI", "TeknoramaUI\TeknoramaUI.csproj", "{B8B06D07-0F89-4784-ACF4-31DADEBC2D09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC77253A-C75B-4B4D-B2C3-C0C865ECBCA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC77253A-C75B-4B4D-B2C3-C0C865ECBCA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC77253A-C75B-4B4D-B2C3-C0C865ECBCA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC77253A-C75B-4B4D-B2C3-C0C865ECBCA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8B06D07-0F89-4784-ACF4-31DADEBC2D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B06D07-0F89-4784-ACF4-31DADEBC2D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B06D07-0F89-4784-ACF4-31DADEBC2D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B06D07-0F89-4784-ACF4-31DADEBC2D09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92BDD56A-E1A2-48C9-AFAE-DFC8327E702D}
+	EndGlobalSection
+EndGlobal
