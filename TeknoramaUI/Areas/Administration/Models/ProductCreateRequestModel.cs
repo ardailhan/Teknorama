@@ -9,7 +9,9 @@ namespace TeknoramaUI.Areas.Administration.Models
         [Required(ErrorMessage = "Product price must not be empty")]
         public decimal UnitPrice { get; set; }
         public int UnitsInStock { get; set; }
-        public string ImagePath { get; set; }
+        public IFormFile ImagePath { get; set; }
+        public string ImagePathName { get; set; }
+
         [Required(ErrorMessage = "Product category must not be empty")]
         public int CategoryId { get; set; }
         [Required(ErrorMessage = "Product supplier must not be empty")]

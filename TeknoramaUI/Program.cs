@@ -21,6 +21,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
 
 var app = builder.Build();
 
+//app.UseStaticFiles();
+
 app.UseRouting();
 
 //Middlewarelarýn çaðrýlma sýrasýna dikkat ediyorum

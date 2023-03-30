@@ -50,6 +50,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             return View(new SupplierCreateRequestModel());
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SupplierCreateRequestModel model)
         {
             if (ModelState.IsValid)

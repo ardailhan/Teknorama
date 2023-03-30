@@ -69,6 +69,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             else return RedirectToAction("Index","Home");
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IssueCreateRequestModel model)
         {
             if (ModelState.IsValid)

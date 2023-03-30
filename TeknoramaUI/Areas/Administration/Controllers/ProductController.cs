@@ -7,6 +7,8 @@ using TeknoramaUI.Areas.Administration.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text;
 using System.Net;
+using Microsoft.AspNetCore.Hosting;
+using TeknoramaUI.Managers;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {
@@ -14,10 +16,12 @@ namespace TeknoramaUI.Areas.Administration.Controllers
     public class ProductController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductController(IHttpClientFactory httpClientFactory)
+        public ProductController(IHttpClientFactory httpClientFactory, IWebHostEnvironment webHostEnvironment)
         {
             _httpClientFactory = httpClientFactory;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         private HttpClient CreateClient()
@@ -90,10 +94,15 @@ namespace TeknoramaUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProductCreateRequestModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ProductCreateRequestModel model, IFormFile pictureFile, IWebHostEnvironment webHostEnvironment)
         {
             if (ModelState.IsValid)
             {
+                //ImageUpload eklemeye çalıştım
+                string uniqueFileName = model.ImagePath.GetUniqueNameAndSavePhotoToDisk(webHostEnvironment);
+                model.ImagePathName = uniqueFileName;
+
                 HttpClient client = CreateClient();
                 StringContent requestContent = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync("http://localhost:5288/api/Products", requestContent);
@@ -126,14 +135,25 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             else return RedirectToAction("Index", "Home");
         }
         [HttpPost]
-        public async Task<IActionResult> Update(ProductUpdateRequestModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(ProductUpdateRequestModel model, IWebHostEnvironment webHostEnvironment)
         {
             if (ModelState.IsValid)
             {
-                var client = this.CreateClient();
+                HttpClient client = this.CreateClient();
+                // Yeni resim yüklendi mi kontrolünü yapalım
+                if (model.ImagePath != null)
+                {
+                    // Eğer varsa öncekini silmemiz gerekli
+                    FileManager.RemoveImageFromDisk(model.ImagePathName, webHostEnvironment);
 
+                    // Şimdi yeni resim eklemeye geçiyoruz
+                    string uniqueFileName = model.ImagePath.GetUniqueNameAndSavePhotoToDisk(webHostEnvironment);
+
+                    // Guncelledıkten sonra yeniden adlandırma ile mappingini tamamlıyoruz 
+                    model.ImagePathName = uniqueFileName;
+                }
                 var requestContent = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
-
                 var response = await client.PutAsync("http://localhost:5099/api/Products", requestContent);
 
                 return RedirectToAction("List");
@@ -141,9 +161,14 @@ namespace TeknoramaUI.Areas.Administration.Controllers
 
             return View();
         }
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id, string imagePathName)
         {
             HttpClient client = CreateClient();
+            //Product ile birlikte resimide silmek için
+            if (!string.IsNullOrEmpty(imagePathName))
+            {
+                FileManager.RemoveImageFromDisk(imagePathName, _webHostEnvironment);
+            }
             await client.DeleteAsync($"http://localhost:5288/api/Products/{id}");
             return RedirectToAction("List");
         }
