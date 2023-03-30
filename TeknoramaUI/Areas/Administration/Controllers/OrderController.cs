@@ -61,38 +61,6 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             else if (response.StatusCode == HttpStatusCode.Forbidden) return RedirectToAction("AccessDenied", "Account");
             else return RedirectToAction("Index", "Home");
         }
-        //ORDER CREATE GEREKSİZ OLDU GEREKSEYDİ BOYLE OLACAKTI VE HTTPPOST EKLENECEKTİ
-        //public async Task<IActionResult> Create()
-        //{
-        //    HttpClient client = CreateClient();
-        //    HttpResponseMessage response = await client.GetAsync("http://localhost:5288/api/AppUsers");
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        // Get AppUsers
-        //        string jsonString = await response.Content.ReadAsStringAsync();
-        //        List<AppUserListResponseModel> appUserList = JsonSerializer.Deserialize<List<AppUserListResponseModel>>(jsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
-
-        //        ViewBag.AppUsers = new SelectList(appUserList, "Id", "UserName");
-
-        //        // Get Employees
-
-        //        HttpResponseMessage responseEmployees = await client.GetAsync("http://localhost:5288/api/Employees");
-        //        string employeeJsonString = await responseEmployees.Content.ReadAsStringAsync();
-        //        List<EmployeeListResponseModel> employeeList = JsonSerializer.Deserialize<List<EmployeeListResponseModel>>(employeeJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
-
-        //        ViewBag.Employees = new SelectList(employeeList, "Id", "FirstName", "LastName", "MonthlySales");
-
-        //        //Get Shippers
-
-        //        HttpResponseMessage responseShippers = await client.GetAsync("http://localhost:5288/api/Shippers");
-        //        string shipperJsonString = await responseShippers.Content.ReadAsStringAsync();
-        //        List<ShipperListResponseModel> shipperList = JsonSerializer.Deserialize<List<ShipperListResponseModel>>(shipperJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
-
-        //        ViewBag.Shippers = new SelectList(shipperList, "Id", "CompanyName", "PhoneNo");
-
-        //        return View();
-        //    }
-        //    else return RedirectToAction("Index", "Home");
-        //}
+        
     }
 }

@@ -81,7 +81,8 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             }
             return RedirectToAction("List");
         }
-        [HttpPut]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(CategoryUpdateRequestModel model)
         {
             if (ModelState.IsValid)

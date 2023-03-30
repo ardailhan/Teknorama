@@ -103,6 +103,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             else return RedirectToAction("Index", "Home");
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(EmployeeUpdateRequestModel model)
         {
             if (ModelState.IsValid)
