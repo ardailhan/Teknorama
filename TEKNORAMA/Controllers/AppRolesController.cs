@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TeknoramaBackOffice.Core.Features.CQRS.Commands;
+using TeknoramaBackOffice.Core.Features.CQRS.Commands.AppRoleCommands;
 using TeknoramaBackOffice.Core.Features.CQRS.Queries;
 
 namespace TeknoramaBackOffice.Controllers

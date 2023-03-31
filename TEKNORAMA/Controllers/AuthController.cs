@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeknoramaBackOffice.Core.DTOs;
-using TeknoramaBackOffice.Core.Features.CQRS.Commands;
-using TeknoramaBackOffice.Core.Features.CQRS.Queries;
+using TeknoramaBackOffice.Core.Features.CQRS.Commands.RegisterUserCommands;
+using TeknoramaBackOffice.Core.Features.CQRS.Queries.UserQueries;
 using TeknoramaBackOffice.Infrastructure.Tools;
 
 namespace TeknoramaBackOffice.Controllers

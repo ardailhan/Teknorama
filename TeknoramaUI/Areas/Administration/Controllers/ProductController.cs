@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Text.Json;
-using TeknoramaUI.Areas.Administration.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text;
 using System.Net;
 using Microsoft.AspNetCore.Hosting;
 using TeknoramaUI.Managers;
+using TeknoramaUI.Areas.Administration.Models.CategoryModel;
+using TeknoramaUI.Areas.Administration.Models.ProductModel;
+using TeknoramaUI.Areas.Administration.Models.SupplierModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {

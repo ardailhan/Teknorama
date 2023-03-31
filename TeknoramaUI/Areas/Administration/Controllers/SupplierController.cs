@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using TeknoramaUI.Areas.Administration.Models;
+using TeknoramaUI.Areas.Administration.Models.SupplierModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {

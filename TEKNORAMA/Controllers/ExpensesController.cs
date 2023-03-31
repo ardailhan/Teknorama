@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeknoramaBackOffice.Core.Application.Enums;
-using TeknoramaBackOffice.Core.Features.CQRS.Commands;
+using TeknoramaBackOffice.Core.Features.CQRS.Commands.ExpenseCommands;
 using TeknoramaBackOffice.Core.Features.CQRS.Queries;
 
 namespace TeknoramaBackOffice.Controllers
