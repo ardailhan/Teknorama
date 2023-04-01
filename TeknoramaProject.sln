@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeknoramaBackOffice", "TEKN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeknoramaUI", "TeknoramaUI\TeknoramaUI.csproj", "{B8B06D07-0F89-4784-ACF4-31DADEBC2D09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeknoramaPresentation", "TeknoramaPresentation\TeknoramaPresentation.csproj", "{A36C936D-390D-406C-8440-0A444C37D98C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{B8B06D07-0F89-4784-ACF4-31DADEBC2D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8B06D07-0F89-4784-ACF4-31DADEBC2D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8B06D07-0F89-4784-ACF4-31DADEBC2D09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A36C936D-390D-406C-8440-0A444C37D98C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A36C936D-390D-406C-8440-0A444C37D98C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A36C936D-390D-406C-8440-0A444C37D98C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A36C936D-390D-406C-8440-0A444C37D98C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
