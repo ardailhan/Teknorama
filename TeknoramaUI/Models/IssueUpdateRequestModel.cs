@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TeknoramaBackOffice.Core.Application.Enums;
 
-namespace TeknoramaUI.Models.IssueModel
+namespace TeknoramaUI.Models
 {
     public class IssueUpdateRequestModel
     {

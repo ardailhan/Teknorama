@@ -1,4 +1,4 @@
-﻿namespace TeknoramaUI.Models.Jwt
+﻿namespace TeknoramaUI.Models
 {
     public class JwtResponseModel
     {

@@ -1,7 +1,7 @@
 ﻿using TeknoramaBackOffice.Core.Application.Enums;
 using TeknoramaUI.Areas.Administration.Models.AppuserModel;
 
-namespace TeknoramaUI.Models.IssueModel
+namespace TeknoramaUI.Models
 {
     public class IssueListResponseModel
     {

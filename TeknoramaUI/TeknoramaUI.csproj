@@ -8,13 +8,9 @@
 
   <ItemGroup>
     <Compile Remove="wwwroot\admintemp\**" />
-    <Compile Remove="wwwroot\images\**" />
     <Content Remove="wwwroot\admintemp\**" />
-    <Content Remove="wwwroot\images\**" />
     <EmbeddedResource Remove="wwwroot\admintemp\**" />
-    <EmbeddedResource Remove="wwwroot\images\**" />
     <None Remove="wwwroot\admintemp\**" />
-    <None Remove="wwwroot\images\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +22,7 @@
   <ItemGroup>
     <Folder Include="Areas\Administration\Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
   <ItemGroup>

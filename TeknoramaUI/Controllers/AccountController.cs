@@ -5,9 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
-using TeknoramaUI.Models.Jwt;
-using TeknoramaUI.Models.UserLogin;
-using TeknoramaUI.Models.UserRegister;
+using TeknoramaUI.Models;
 
 namespace TeknoramaUI.Controllers
 {

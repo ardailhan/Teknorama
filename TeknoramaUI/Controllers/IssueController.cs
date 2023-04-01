@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using TeknoramaUI.Areas.Administration.Models.AppuserModel;
-using TeknoramaUI.Models.IssueModel;
+using TeknoramaUI.Models;
 
 namespace TeknoramaUI.Controllers
 {
