@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeknoramaBackOffice.Core.Features.CQRS.Commands.MessageCommands;
-using TeknoramaBackOffice.Core.Features.CQRS.Queries;
+using TeknoramaBackOffice.Core.Features.CQRS.Queries.MessageQueries;
 
 namespace TeknoramaBackOffice.Controllers
 {
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
     public class MessagesController : ControllerBase
     {
         private readonly IMediator _mediator;

@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeknoramaBackOffice.Core.Features.CQRS.Commands.ShipperCommands;
-using TeknoramaBackOffice.Core.Features.CQRS.Queries;
+using TeknoramaBackOffice.Core.Features.CQRS.Queries.ShipperQueries;
 
 namespace TeknoramaBackOffice.Controllers
 {
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
     public class ShippersController : ControllerBase
     {
         private readonly IMediator _mediator;

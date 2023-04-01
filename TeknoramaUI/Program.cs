@@ -19,9 +19,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
     opt.Cookie.Name = "JwtCookie";
 });
 
+//builder.Services.AddDistributedMemoryCache();
+
+//builder.Services.AddSession(options =>
+//{
+//    options.IdleTimeout = TimeSpan.FromMinutes(30);
+//    options.Cookie.IsEssential = true;
+//});
+
 var app = builder.Build();
 
-//app.UseStaticFiles();
+//app.UseSession();
+
+app.UseStaticFiles();
 
 app.UseRouting();
 
@@ -29,6 +39,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
 
 app.UseEndpoints(endpoints =>
 {

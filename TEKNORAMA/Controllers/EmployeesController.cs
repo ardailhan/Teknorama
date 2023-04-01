@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeknoramaBackOffice.Core.Features.CQRS.Commands.EmployeeCommands;
-using TeknoramaBackOffice.Core.Features.CQRS.Queries;
+using TeknoramaBackOffice.Core.Features.CQRS.Queries.EmployeeQueries;
 
 namespace TeknoramaBackOffice.Controllers
 {
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize("Admin")]
     public class EmployeesController : ControllerBase
     {
         private readonly IMediator _mediator;

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeknoramaBackOffice.Core.Features.CQRS.Commands.AppUserCommands;
-using TeknoramaBackOffice.Core.Features.CQRS.Queries;
+using TeknoramaBackOffice.Core.Features.CQRS.Queries.AppUserQueries;
 
 namespace TeknoramaBackOffice.Controllers
 {

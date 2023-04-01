@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeknoramaBackOffice.Core.Features.CQRS.Commands.OrderDetailCommands;
-using TeknoramaBackOffice.Core.Features.CQRS.Queries;
+using TeknoramaBackOffice.Core.Features.CQRS.Queries.OrderDetailQueries;
 
 namespace TeknoramaBackOffice.Controllers
 {
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
     public class OrderDetailsController : ControllerBase
     {
         private readonly IMediator _mediator;

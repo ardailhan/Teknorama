@@ -20,6 +20,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.CategoryHandlers
             {
                 CategoryName = request.CategoryName,
                 Description = request.Description,
+                Status = request.Status,
             });
             return Unit.Value;
         }

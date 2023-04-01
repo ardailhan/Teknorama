@@ -4,7 +4,7 @@ using System.Data;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text.Json;
-using TeknoramaUI.Areas.Administration.Models.OrderModel;
+using TeknoramaUI.Areas.Administration.Models.OrderDetailModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {

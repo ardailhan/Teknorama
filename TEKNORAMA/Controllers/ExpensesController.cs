@@ -5,14 +5,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TeknoramaBackOffice.Core.Application.Enums;
 using TeknoramaBackOffice.Core.Features.CQRS.Commands.ExpenseCommands;
-using TeknoramaBackOffice.Core.Features.CQRS.Queries;
+using TeknoramaBackOffice.Core.Features.CQRS.Queries.ExpenseQueries;
 
 namespace TeknoramaBackOffice.Controllers
 {
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
     public class ExpensesController : ControllerBase
     {
         private readonly IMediator _mediator;

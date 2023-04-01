@@ -25,6 +25,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.ProductHandlers
                 updatedProduct.ImagePath = request.ImagePath;
                 updatedProduct.CategoryId = request.CategoryId;
                 updatedProduct.SupplierId = request.SupplierId;
+                updatedProduct.Status = request.Status;
                 await _repository.UpdateAsync(updatedProduct);
             }
             return Unit.Value;

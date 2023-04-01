@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using TeknoramaBackOffice.Core.Application.Enums;
 
 namespace TeknoramaBackOffice.Core.Features.CQRS.Commands.ProductCommands
 {
@@ -10,5 +11,6 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Commands.ProductCommands
         public string ImagePath { get; set; }
         public int CategoryId { get; set; }
         public int SupplierId { get; set; }
+        public DataStatus Status { get; set; } = DataStatus.Inserted;
     }
 }

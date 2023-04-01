@@ -21,6 +21,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.CategoryHandlers
             {
                 updatedCategory.CategoryName = request.CategoryName;
                 updatedCategory.Description = request.Description;
+                updatedCategory.Status = request.Status;
                 await _repository.UpdateAsync(updatedCategory);
             }
             return Unit.Value;

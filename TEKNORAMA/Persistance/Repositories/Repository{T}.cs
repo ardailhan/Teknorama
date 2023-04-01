@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using TeknoramaBackOffice.Core.Application.Enums;
 using TeknoramaBackOffice.Core.Application.Interfaces;
 using TeknoramaBackOffice.Persistance.Context;
 
@@ -46,5 +47,9 @@ namespace TeknoramaBackOffice.Persistance.Repositories
             return await _teknoContext.Set<T>().FindAsync(id);
         }
 
+        public async Task<List<T>> GetByWhereAsync(Expression<Func<T, bool>> where)
+        {
+            return await _teknoContext.Set<T>().Where(where).ToListAsync();
+        }
     }
 }

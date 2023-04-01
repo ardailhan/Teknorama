@@ -5,19 +5,19 @@ namespace TeknoramaBackOffice.Core.Application.Enums
     public enum UserRole
     {
         Admin = 1,
+        Member = 2,
         [Display(Name = "Branch Manager")]
-        BranchManager = 2,
+        BranchManager = 3,
         [Display(Name = "Sales Representative")]
-        SalesRepresentative = 3,
+        SalesRepresentative = 4,
         [Display(Name = "Warehouse Representative")]
-        WarehouseRepresentative = 4,
+        WarehouseRepresentative = 5,
         [Display(Name = "Accounting Representative")]
-        AccountingRepresentative = 5,
+        AccountingRepresentative = 6,
         [Display(Name = "Technical Representative")]
-        TechnicalServiceRepresentative = 6,
+        TechnicalServiceRepresentative = 7,
         [Display(Name = "Mobile Sales Representative")]
-        MobileSalesRepresentative = 7,
-        Member = 8,
+        MobileSalesRepresentative = 8,
         Visitor = 9,
         Employee = 10
     }

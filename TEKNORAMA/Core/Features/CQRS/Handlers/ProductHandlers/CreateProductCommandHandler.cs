@@ -9,12 +9,10 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.ProductHandlers
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest>
     {
         private readonly IRepository<Product> _repository;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-
-        public CreateProductCommandHandler(IRepository<Product> repository, IWebHostEnvironment webHostEnvironment = null)
+        public CreateProductCommandHandler(IRepository<Product> repository)
         {
             _repository = repository;
-            _webHostEnvironment = webHostEnvironment;
+            
         }
 
         public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
@@ -26,7 +24,8 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.ProductHandlers
                 ProductName = request.ProductName,
                 UnitPrice = request.UnitPrice,
                 UnitsInStock = request.UnitsInStock,
-                ImagePath = request.ImagePath
+                ImagePath = request.ImagePath,
+                Status = request.Status
             });
             return Unit.Value;
         }
