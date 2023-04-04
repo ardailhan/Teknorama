@@ -16,6 +16,6 @@
         public const string Issuer = "http://localhost";
         public const string Audience = "http://localhost";
         public const string Key = "ardailhannnn.net6;";
-        public const int Expire = 30;
+        public const int Expire = 60;
     }
 }

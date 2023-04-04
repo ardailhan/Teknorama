@@ -1,7 +1,9 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using TeknoramaBackOffice.Core.Features.CQRS.Commands.AppUserCommands;
 using TeknoramaBackOffice.Core.Features.CQRS.Queries.AppUserQueries;
 
@@ -10,6 +12,7 @@ namespace TeknoramaBackOffice.Controllers
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class AppUsersController : ControllerBase
     {
         private readonly IMediator _mediator;

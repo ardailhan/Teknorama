@@ -1,0 +1,32 @@
+﻿@model TeknoramaUI.Areas.Administration.Models.SupplierModel.SupplierUpdateRequestModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Supplier Update Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.CompanyName)
+    @Html.TextBoxFor(x=>x.CompanyName, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.ContactName)
+    @Html.TextBoxFor(x=>x.ContactName, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.PhoneNumber)
+    @Html.TextBoxFor(x=>x.PhoneNumber, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Email)
+    @Html.TextBoxFor(x=>x.Email, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Address)
+    @Html.TextBoxFor(x=>x.Address, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.City)
+    @Html.TextBoxFor(x=>x.City, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Country)
+    @Html.TextBoxFor(x=>x.Country, new{@class = "form-control"})
+    <button class="btn btn-info">Save</button>
+</form>

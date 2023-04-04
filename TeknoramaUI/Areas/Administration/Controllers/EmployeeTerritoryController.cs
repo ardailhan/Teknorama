@@ -41,13 +41,13 @@ namespace TeknoramaUI.Areas.Administration.Controllers
                 foreach ( var item in list)
                 {
                     //Employee list
-                    var responseEmployee = await client.GetAsync("http://localhost:5288/api/Employees" + item.EmployeeId);
+                    var responseEmployee = await client.GetAsync($"http://localhost:5288/api/Employees{item.EmployeeId}");
                     var employeeJsonString = await responseEmployee.Content.ReadAsStringAsync();
                     var employee = JsonSerializer.Deserialize<EmployeeListResponseModel>(employeeJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
                     item.Employee = employee;
 
                     //Territory list
-                    var responseTerritory = await client.GetAsync("http://localhost:5288/api/Territories" + item.TerritoryId);
+                    var responseTerritory = await client.GetAsync($"http://localhost:5288/api/Territories{item.TerritoryId}");
                     var territoryJsonString = await responseTerritory.Content.ReadAsStringAsync();
                     var territory = JsonSerializer.Deserialize<TerritoryListResponseModel>(territoryJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
                     item.Territory = territory;

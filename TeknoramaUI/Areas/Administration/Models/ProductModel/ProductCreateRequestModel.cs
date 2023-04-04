@@ -4,6 +4,7 @@ namespace TeknoramaUI.Areas.Administration.Models.ProductModel
 {
     public class ProductCreateRequestModel
     {
+       
         [Required(ErrorMessage = "Product name must not be empty")]
         public string ProductName { get; set; }
         [Required(ErrorMessage = "Product price must not be empty")]

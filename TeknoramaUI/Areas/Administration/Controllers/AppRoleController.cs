@@ -47,6 +47,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             await client.DeleteAsync($"http://localhost:5288/api/AppRoles{id}");
             return RedirectToAction("List");
         }
+        [HttpGet]
         public IActionResult Create()
         {
             return View(new AppRoleCreateRequestModel());
@@ -64,6 +65,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             }
             return View(model);
         }
+        [HttpGet]
         public async Task<IActionResult> Update(int id)
         {
             HttpClient client = CreateClient();
@@ -76,7 +78,8 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             }
             return RedirectToAction("List");
         }
-        [HttpPut]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(AppRoleUpdateRequestModel model)
         {
             if (ModelState.IsValid)

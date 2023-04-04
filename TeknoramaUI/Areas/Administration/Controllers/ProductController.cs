@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Net.Http;
+using Microsoft.AspNetCore.Hosting;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text;
 using System.Net;
-using Microsoft.AspNetCore.Hosting;
 using TeknoramaUI.Managers;
 using TeknoramaUI.Areas.Administration.Models.CategoryModel;
 using TeknoramaUI.Areas.Administration.Models.ProductModel;
@@ -47,16 +47,16 @@ namespace TeknoramaUI.Areas.Administration.Controllers
 
                 foreach (var item in list)
                 {
-                    //Category list yakalama alanı !!
-                    var responseCategory = await client.GetAsync("http://localhost:5288/api/Categories/" + item.CategoryId);
-                    var categoryJsonString = await response.Content.ReadAsStringAsync();
+                    //Category eşleştirme
+                    var responseCategory = await client.GetAsync($"http://localhost:5288/api/Categories/{item.CategoryId}");
+                    var categoryJsonString = await responseCategory.Content.ReadAsStringAsync();
                     var category = JsonSerializer.Deserialize<CategoryListResponseModel>(categoryJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
                     item.Category = category;
 
-                    //Supplier list yakalama alanı !!
-                    var responseSupplier = await client.GetAsync("http://localhost:5288/api/Suppliers/" + item.SupplierId);
-                    var supplierJsonString = await response.Content.ReadAsStringAsync();
+                    //Supplier eşleştirme
+                    var responseSupplier = await client.GetAsync($"http://localhost:5288/api/Suppliers/{item.SupplierId}");
+                    var supplierJsonString = await responseSupplier.Content.ReadAsStringAsync();
                     var supplier = JsonSerializer.Deserialize<SupplierListResponseModel>(supplierJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
                     item.Supplier = supplier;
@@ -97,13 +97,14 @@ namespace TeknoramaUI.Areas.Administration.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ProductCreateRequestModel model, IFormFile pictureFile, IWebHostEnvironment webHostEnvironment)
+        public async Task<IActionResult> Create(ProductCreateRequestModel model)
         {
+            
             if (ModelState.IsValid)
             {
                 //ImageUpload eklemeye çalıştım
-                string uniqueFileName = model.ImagePath.GetUniqueNameAndSavePhotoToDisk(webHostEnvironment);
-                model.ImagePathName = uniqueFileName;
+                //string uniqueFileName = model.ImagePath.GetUniqueNameAndSavePhotoToDisk(webHostEnvironment);
+                //model.ImagePathName = uniqueFileName;
 
                 HttpClient client = CreateClient();
                 StringContent requestContent = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
@@ -138,25 +139,25 @@ namespace TeknoramaUI.Areas.Administration.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(ProductUpdateRequestModel model, IWebHostEnvironment webHostEnvironment)
+        public async Task<IActionResult> Update(ProductUpdateRequestModel model)
         {
             if (ModelState.IsValid)
             {
                 HttpClient client = this.CreateClient();
                 // Yeni resim yüklendi mi kontrolünü yapalım
-                if (model.ImagePath != null)
-                {
-                    // Eğer varsa öncekini silmemiz gerekli
-                    FileManager.RemoveImageFromDisk(model.ImagePathName, webHostEnvironment);
+                //if (model.ImagePath != null)
+                //{
+                //    // Eğer varsa öncekini silmemiz gerekli
+                //    FileManager.RemoveImageFromDisk(model.ImagePathName, webHostEnvironment);
 
-                    // Şimdi yeni resim eklemeye geçiyoruz
-                    string uniqueFileName = model.ImagePath.GetUniqueNameAndSavePhotoToDisk(webHostEnvironment);
+                //    // Şimdi yeni resim eklemeye geçiyoruz
+                //    string uniqueFileName = model.ImagePath.GetUniqueNameAndSavePhotoToDisk(webHostEnvironment);
 
-                    // Guncelledıkten sonra yeniden adlandırma ile mappingini tamamlıyoruz 
-                    model.ImagePathName = uniqueFileName;
-                }
+                //    // Guncelledıkten sonra yeniden adlandırma ile mappingini tamamlıyoruz 
+                //    model.ImagePathName = uniqueFileName;
+                //}
                 var requestContent = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
-                var response = await client.PutAsync("http://localhost:5099/api/Products", requestContent);
+                var response = await client.PutAsync("http://localhost:5288/api/Products", requestContent);
 
                 return RedirectToAction("List");
             }

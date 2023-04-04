@@ -1,0 +1,42 @@
+﻿@model TeknoramaUI.Areas.Administration.Models.EmployeeModel.EmployeeCreateRequestModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Employee Create Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.FirstName)
+    @Html.TextBoxFor(x=>x.FirstName, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.LastName)
+    @Html.TextBoxFor(x=>x.LastName, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.TCNO)
+    @Html.TextBoxFor(x=>x.TCNO, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.PhoneNo)
+    @Html.TextBoxFor(x=>x.PhoneNo, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Email)
+    @Html.TextBoxFor(x=>x.Email, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.BirthDate)
+    @Html.TextBoxFor(x=>x.BirthDate, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Gender)
+    @Html.TextBoxFor(x=>x.Gender, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.MonthlySales)
+    @Html.TextBoxFor(x=>x.MonthlySales, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Salary)
+    @Html.TextBoxFor(x=>x.Salary, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.AppRoleId)
+    @Html.TextBoxFor(x=>x.AppRoleId, new{@class = "form-control"})
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>

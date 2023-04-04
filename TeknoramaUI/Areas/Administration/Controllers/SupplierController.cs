@@ -7,7 +7,7 @@ using TeknoramaUI.Areas.Administration.Models.SupplierModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {
-    [Authorize(Roles = "Admin,BranchManager")]
+    [Authorize(Roles = "Admin")]
     public class SupplierController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

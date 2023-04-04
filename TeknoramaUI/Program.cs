@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Hosting.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();// Api controller endpointlerimi yakalamak için eklemeyi yaptým.
+
 
 //Token ayarlamalarý gerçekleþtirilir
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>
@@ -29,6 +31,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
 
 var app = builder.Build();
 
+
 //app.UseSession();
 
 app.UseStaticFiles();
@@ -46,7 +49,7 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
             name: "areas",
-            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            pattern: "{area=Administration}/{controller=Category}/{action=List}/{id?}"
           );//Area için gerekli endpoint tanýmlamasý
     endpoints.MapDefaultControllerRoute();
 });

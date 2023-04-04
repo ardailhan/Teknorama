@@ -1,0 +1,56 @@
+﻿@using TeknoramaUI.Areas.Administration.Models.EmployeeModel
+@model List<EmployeeListResponseModel>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>TCNO</th>
+        <th>Phone No</th>
+        <th>Email</th>
+        <th>Birthdate</th>
+        <th>Gender</th>
+        <th>MonthlySales</th>
+        <th>Salary</th>
+        <th>AppRole</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    @if (Model.Count > 0)
+    {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <th>@item.FirstName</th>
+                <th>@item.LastName</th>
+                <th>@item.TCNO</th>
+                <th>@item.PhoneNo</th>
+                <th>@item.Email</th>
+                <th>@item.BirthDate</th>
+                <th>@item.Gender</th>
+                <th>@item.MonthlySales</th>
+                <th>@item.Salary</th>
+                <th>@item.AppRole.Definition</th>
+                <th colspan="1">
+                    <a class="btn btn-outline-warning btn-sm" asp-route-id="@item.Id" asp-action="Update" asp-controller="Employee">Update</a>
+                </th>
+                <th colspan="2">
+                    <a class="btn btn-outline-danger btn-sm" asp-route-id="@item.Id" asp-action="Delete" asp-controller="Employee">Delete</a>
+                </th>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="2" class="text-danger">There is no any data..!</td>
+        </tr>
+    }
+</table>
+<a href="/Administration/Employee/Create" class="btn btn-primary">Add Employee</a>

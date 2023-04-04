@@ -1,0 +1,15 @@
+﻿@model TeknoramaUI.Areas.Administration.Models.AppRoleModel.AppRoleUpdateRequestModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update App Role Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.Definition)
+    @Html.TextBoxFor(x=>x.Definition, new{@class = "form-control"})
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>
