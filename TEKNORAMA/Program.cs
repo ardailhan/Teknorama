@@ -45,6 +45,8 @@ builder.Services.AddAutoMapper(opt =>
         new UserProfileProfile(),
         new AppUserProfile(),
         new AppRoleProfile(),
+        new BasketProfile(),
+        new BasketItemProfile(),
     });
 });
 

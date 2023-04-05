@@ -17,5 +17,6 @@ namespace TeknoramaBackOffice.Core.Domain
         public virtual AppRole AppRole { get; set; }
         public virtual List<Order> Orders { get; set; }
         public virtual List<Issue> Issues { get; set; }
+        public virtual List<Basket> Baskets { get; set; }
     }
 }

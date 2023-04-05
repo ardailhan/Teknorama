@@ -1,0 +1,15 @@
+﻿@model TeknoramaUI.Areas.Administration.Models.TerritoryModel.TerritoryCreateRequestModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>New Territory Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.TerritoryDescription)
+    @Html.TextBoxFor(x=>x.TerritoryDescription, new{@class = "form-control"})
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>

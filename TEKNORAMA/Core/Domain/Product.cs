@@ -19,5 +19,6 @@ namespace TeknoramaBackOffice.Core.Domain
         public virtual Category Category { get; set; }
         public virtual Supplier Supplier { get; set; }
         public virtual List<OrderDetail> OrderDetails { get; set; }
+        public virtual List<BasketItem> BasketItems { get; set; }
     }
 }

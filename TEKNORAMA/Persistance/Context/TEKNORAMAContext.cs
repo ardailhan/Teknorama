@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TeknoramaBackOffice.Core.Domain;
 using TeknoramaBackOffice.Persistance.Configurations.AppUserConfigurations;
+using TeknoramaBackOffice.Persistance.Configurations.BasketConfigurations;
 using TeknoramaBackOffice.Persistance.Configurations.EmployeeConfigurations;
 using TeknoramaBackOffice.Persistance.Configurations.EmployeeTerritoryConfigurations;
 using TeknoramaBackOffice.Persistance.Configurations.ExpenseConfigurations;
@@ -28,6 +29,8 @@ namespace TeknoramaBackOffice.Persistance.Context
         public DbSet<Supplier> Suppliers => Set<Supplier>();
         public DbSet<Territory> Territories => Set<Territory>();
         public DbSet<UserProfile> UserProfiles => Set<UserProfile>();
+        public DbSet<Basket> Baskets => Set<Basket>();
+        public DbSet<BasketItem> BasketItems => Set<BasketItem>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,6 +41,7 @@ namespace TeknoramaBackOffice.Persistance.Context
             modelBuilder.ApplyConfiguration(new EmployeeTerritoryConfiguration());
             modelBuilder.ApplyConfiguration(new ExpenseConfiguration());
             modelBuilder.ApplyConfiguration(new MessageConfiguration());
+            modelBuilder.ApplyConfiguration(new BasketConfiguration());
             
             base.OnModelCreating(modelBuilder);
         }
