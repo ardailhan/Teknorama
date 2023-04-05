@@ -13,7 +13,6 @@ namespace TeknoramaBackOffice.Core.Domain
         public int AppRoleId { get; set; }
 
         //Navigation properties
-        public virtual UserProfile Profile { get; set; }
         public virtual AppRole AppRole { get; set; }
         public virtual List<Order> Orders { get; set; }
         public virtual List<Issue> Issues { get; set; }

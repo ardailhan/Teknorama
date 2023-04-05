@@ -42,7 +42,6 @@ builder.Services.AddAutoMapper(opt =>
         new OrderDetailProfile(),
         new ShipperProfile(),
         new TerritoryProfile(),
-        new UserProfileProfile(),
         new AppUserProfile(),
         new AppRoleProfile(),
         new BasketProfile(),

@@ -28,6 +28,7 @@ namespace TeknoramaBackOffice.Core.Domain
         public virtual AppUser AppUser { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Shipper Shipper { get; set; }
+        public virtual Basket Basket { get; set; }
         public virtual List<OrderDetail> OrderDetails { get; set; }
     }
 }

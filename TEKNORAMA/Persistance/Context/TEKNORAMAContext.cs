@@ -28,7 +28,6 @@ namespace TeknoramaBackOffice.Persistance.Context
         public DbSet<Shipper> Shippers => Set<Shipper>();
         public DbSet<Supplier> Suppliers => Set<Supplier>();
         public DbSet<Territory> Territories => Set<Territory>();
-        public DbSet<UserProfile> UserProfiles => Set<UserProfile>();
         public DbSet<Basket> Baskets => Set<Basket>();
         public DbSet<BasketItem> BasketItems => Set<BasketItem>();
 

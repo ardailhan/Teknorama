@@ -315,10 +315,7 @@ namespace TeknoramaBackOffice.Persistance.Migrations
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Order", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AppUserId")
                         .HasColumnType("int");
@@ -515,46 +512,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.ToTable("Territories");
                 });
 
-            modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.UserProfile", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<short?>("Age")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TCNO")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId")
-                        .IsUnique();
-
-                    b.ToTable("UserProfiles");
-                });
-
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.AppUser", b =>
                 {
                     b.HasOne("TeknoramaBackOffice.Core.Domain.AppRole", "AppRole")
@@ -646,7 +603,11 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.HasOne("TeknoramaBackOffice.Core.Domain.Employee", "Employee")
                         .WithMany("Orders")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("TeknoramaBackOffice.Core.Domain.Basket", "Basket")
+                        .WithOne("Order")
+                        .HasForeignKey("TeknoramaBackOffice.Core.Domain.Order", "Id")
                         .IsRequired();
 
                     b.HasOne("TeknoramaBackOffice.Core.Domain.Shipper", "Shipper")
@@ -656,6 +617,8 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                         .IsRequired();
 
                     b.Navigation("AppUser");
+
+                    b.Navigation("Basket");
 
                     b.Navigation("Employee");
 
@@ -700,16 +663,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.UserProfile", b =>
-                {
-                    b.HasOne("TeknoramaBackOffice.Core.Domain.AppUser", "AppUser")
-                        .WithOne("Profile")
-                        .HasForeignKey("TeknoramaBackOffice.Core.Domain.UserProfile", "AppUserId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.AppRole", b =>
                 {
                     b.Navigation("AppUsers");
@@ -724,13 +677,13 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.Navigation("Issues");
 
                     b.Navigation("Orders");
-
-                    b.Navigation("Profile");
                 });
 
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Basket", b =>
                 {
                     b.Navigation("BasketItems");
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Category", b =>

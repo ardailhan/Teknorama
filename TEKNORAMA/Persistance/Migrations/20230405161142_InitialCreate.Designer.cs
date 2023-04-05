@@ -12,8 +12,8 @@ using TeknoramaBackOffice.Persistance.Context;
 namespace TeknoramaBackOffice.Persistance.Migrations
 {
     [DbContext(typeof(TEKNORAMAContext))]
-    [Migration("20230331161427_baseEntityAdded")]
-    partial class baseEntityAdded
+    [Migration("20230405161142_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,6 +73,56 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.ToTable("AppUsers");
                 });
 
+            modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Basket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.BasketItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("BasketId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("BasketItems");
+                });
+
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -118,12 +168,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -136,9 +180,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<decimal>("MonthlySales")
                         .HasColumnType("decimal(18,2)");
 
@@ -147,9 +188,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
 
                     b.Property<decimal>("Salary")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
 
                     b.Property<string>("TCNO")
                         .HasColumnType("nvarchar(max)");
@@ -225,26 +263,14 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.Property<int?>("AppUserId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("IssueStatus")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime>("OpenDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
 
                     b.Property<string>("Subject")
                         .HasColumnType("nvarchar(max)");
@@ -264,12 +290,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
@@ -285,12 +305,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
                     b.Property<string>("Subject")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -303,19 +317,10 @@ namespace TeknoramaBackOffice.Persistance.Migrations
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Order", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AppUserId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<float?>("Discount")
                         .HasColumnType("real");
@@ -325,9 +330,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
 
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -345,9 +347,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ShipperId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
@@ -515,46 +514,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.ToTable("Territories");
                 });
 
-            modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.UserProfile", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<short?>("Age")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TCNO")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId")
-                        .IsUnique();
-
-                    b.ToTable("UserProfiles");
-                });
-
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.AppUser", b =>
                 {
                     b.HasOne("TeknoramaBackOffice.Core.Domain.AppRole", "AppRole")
@@ -564,6 +523,36 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                         .IsRequired();
 
                     b.Navigation("AppRole");
+                });
+
+            modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Basket", b =>
+                {
+                    b.HasOne("TeknoramaBackOffice.Core.Domain.AppUser", "AppUser")
+                        .WithMany("Baskets")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.BasketItem", b =>
+                {
+                    b.HasOne("TeknoramaBackOffice.Core.Domain.Basket", "Basket")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TeknoramaBackOffice.Core.Domain.Product", "Product")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Basket");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Employee", b =>
@@ -616,7 +605,11 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.HasOne("TeknoramaBackOffice.Core.Domain.Employee", "Employee")
                         .WithMany("Orders")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("TeknoramaBackOffice.Core.Domain.Basket", "Basket")
+                        .WithOne("Order")
+                        .HasForeignKey("TeknoramaBackOffice.Core.Domain.Order", "Id")
                         .IsRequired();
 
                     b.HasOne("TeknoramaBackOffice.Core.Domain.Shipper", "Shipper")
@@ -626,6 +619,8 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                         .IsRequired();
 
                     b.Navigation("AppUser");
+
+                    b.Navigation("Basket");
 
                     b.Navigation("Employee");
 
@@ -670,16 +665,6 @@ namespace TeknoramaBackOffice.Persistance.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.UserProfile", b =>
-                {
-                    b.HasOne("TeknoramaBackOffice.Core.Domain.AppUser", "AppUser")
-                        .WithOne("Profile")
-                        .HasForeignKey("TeknoramaBackOffice.Core.Domain.UserProfile", "AppUserId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.AppRole", b =>
                 {
                     b.Navigation("AppUsers");
@@ -689,11 +674,18 @@ namespace TeknoramaBackOffice.Persistance.Migrations
 
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.AppUser", b =>
                 {
+                    b.Navigation("Baskets");
+
                     b.Navigation("Issues");
 
                     b.Navigation("Orders");
+                });
 
-                    b.Navigation("Profile");
+            modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Basket", b =>
+                {
+                    b.Navigation("BasketItems");
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Category", b =>
@@ -715,6 +707,8 @@ namespace TeknoramaBackOffice.Persistance.Migrations
 
             modelBuilder.Entity("TeknoramaBackOffice.Core.Domain.Product", b =>
                 {
+                    b.Navigation("BasketItems");
+
                     b.Navigation("OrderDetails");
                 });
 

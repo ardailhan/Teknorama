@@ -7,6 +7,7 @@
 
         //Navigation Property
         public virtual AppUser AppUser { get; set; }
+        public virtual Order Order { get; set; }
         public virtual List<BasketItem> BasketItems { get; set; }
     }
 }
