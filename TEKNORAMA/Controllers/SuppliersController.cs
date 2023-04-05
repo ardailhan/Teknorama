@@ -34,7 +34,7 @@ namespace TeknoramaBackOffice.Controllers
             if(result == null) return NotFound();
             return Ok(result);
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if(id < 1) return NotFound();

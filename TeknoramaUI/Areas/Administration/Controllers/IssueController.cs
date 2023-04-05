@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using TeknoramaUI.Areas.Administration.Models.AppuserModel;
 using TeknoramaUI.Areas.Administration.Models.IssueModel;
 
@@ -38,7 +39,7 @@ namespace TeknoramaUI.Controllers
                 foreach (var item in list)
                 {
                     //AppUser liste ulaşıyorum
-                    var responseAppUser = await client.GetAsync("http://localhost:5288/api/AppUsers" + item.AppUserId);
+                    var responseAppUser = await client.GetAsync($"http://localhost:5288/api/AppUsers{item.AppUserId}");
                     var appUserJsonString = await responseAppUser.Content.ReadAsStringAsync();
                     var appUser = JsonSerializer.Deserialize<AppUserListResponseModel>(appUserJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
                     item.AppUser = appUser;
@@ -54,6 +55,7 @@ namespace TeknoramaUI.Controllers
             await client.DeleteAsync($"http://localhost:5288/api/Issues/{id}");
             return RedirectToAction("List");
         }
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
             HttpClient client = CreateClient();
@@ -70,7 +72,6 @@ namespace TeknoramaUI.Controllers
             else return RedirectToAction("Index", "Home");
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IssueCreateRequestModel model)
         {
             if (ModelState.IsValid)
@@ -106,7 +107,6 @@ namespace TeknoramaUI.Controllers
             else return RedirectToAction("Index", "Home");
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(IssueUpdateRequestModel model)
         {
             if (ModelState.IsValid)

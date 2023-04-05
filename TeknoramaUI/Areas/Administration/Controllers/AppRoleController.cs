@@ -53,7 +53,6 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             return View(new AppRoleCreateRequestModel());
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AppRoleCreateRequestModel model)
         {
             if (ModelState.IsValid)
@@ -79,7 +78,6 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             return RedirectToAction("List");
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(AppRoleUpdateRequestModel model)
         {
             if (ModelState.IsValid)

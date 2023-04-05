@@ -10,7 +10,7 @@ using TeknoramaUI.Areas.Administration.Models.AppuserModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {
-    [Authorize(Roles = "Admin,BranchManager")]
+    [Authorize(Roles = "Admin")]
     public class AppUserController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

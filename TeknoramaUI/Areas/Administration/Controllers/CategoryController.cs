@@ -56,7 +56,6 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             return View(new CategoryCreateRequestModel());
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CategoryCreateRequestModel model)
         {
             if (ModelState.IsValid)
@@ -82,7 +81,6 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             return RedirectToAction("List");
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(CategoryUpdateRequestModel model)
         {
             if (ModelState.IsValid)

@@ -49,7 +49,6 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             return View(new TerritoryCreateRequestModel());
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TerritoryCreateRequestModel model)
         {
             if (ModelState.IsValid)
@@ -73,7 +72,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             }
             return RedirectToAction("List");
         }
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Update(TerritoryUpdateRequestModel model)
         {
             if (ModelState.IsValid)

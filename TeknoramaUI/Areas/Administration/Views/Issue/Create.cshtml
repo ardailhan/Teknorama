@@ -1,0 +1,30 @@
+﻿@model TeknoramaUI.Areas.Administration.Models.IssueModel.IssueCreateRequestModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>New Issue Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.Subject)
+    @Html.TextBoxFor(x=>x.Subject, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Answer)
+    @Html.TextBoxFor(x=>x.Answer, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.IssueStatus)
+    @Html.TextBoxFor(x=>x.IssueStatus, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.OpenDate)
+    @Html.TextBoxFor(x=>x.OpenDate, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Email)
+    @Html.TextBoxFor(x=>x.Email, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.AppUserId)
+    @Html.TextBoxFor(x=>x.AppUserId, new{@class = "form-control"})
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>

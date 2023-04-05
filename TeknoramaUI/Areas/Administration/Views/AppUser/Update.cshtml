@@ -1,0 +1,30 @@
+﻿@model TeknoramaUI.Areas.Administration.Models.AppuserModel.AppUserUpdateRequestModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>App User Update Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.UserName)
+    @Html.TextBoxFor(x=>x.UserName, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Password)
+    @Html.TextBoxFor(x=>x.Password, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.ConfirmPassword)
+    @Html.TextBoxFor(x=>x.ConfirmPassword, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Email)
+    @Html.TextBoxFor(x=>x.Email, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Active)
+    @Html.TextBoxFor(x=>x.Active, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.AppRoleId)
+    @Html.TextBoxFor(x=>x.AppRoleId, new{@class = "form-control"})
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>
