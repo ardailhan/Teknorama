@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();// Api controller endpointlerimi yakalamak için eklemeyi yaptým.
-//builder.Services.AddHttpContextAccessor();
+
 
 //Token ayarlamalarý gerçekleþtirilir
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>

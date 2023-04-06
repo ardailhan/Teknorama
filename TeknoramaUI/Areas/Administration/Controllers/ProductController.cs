@@ -96,9 +96,9 @@ namespace TeknoramaUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductCreateRequestModel model)
         {
-            
             if (ModelState.IsValid)
             {
                 //ImageUpload eklemeye çalıştım
@@ -137,6 +137,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             else return RedirectToAction("Index", "Home");
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(ProductUpdateRequestModel model)
         {
             if (ModelState.IsValid)

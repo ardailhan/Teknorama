@@ -14,5 +14,6 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Commands.EmployeeCommands
         public Gender Gender { get; set; }
         public decimal MonthlySales { get; set; }
         public decimal Salary { get; set; }
+        public int AppRoleId { get; set; }
     }
 }

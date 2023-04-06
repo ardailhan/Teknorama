@@ -11,7 +11,6 @@ namespace TeknoramaBackOffice.Controllers
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
     public class IssuesController : ControllerBase
     {
         private readonly IMediator _mediator;

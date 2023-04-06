@@ -27,6 +27,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.EmployeeHandlers
                 Gender = request.Gender,
                 MonthlySales = request.MonthlySales,
                 Salary = request.Salary,
+                AppRoleId = request.AppRoleId
             });
             return Unit.Value;
         }

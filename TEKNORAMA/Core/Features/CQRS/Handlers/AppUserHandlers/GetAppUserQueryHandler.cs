@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using System.Runtime.CompilerServices;
 using TeknoramaBackOffice.Core.Application.Interfaces;
 using TeknoramaBackOffice.Core.Domain;
 using TeknoramaBackOffice.Core.DTOs;

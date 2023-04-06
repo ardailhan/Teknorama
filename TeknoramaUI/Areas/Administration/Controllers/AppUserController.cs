@@ -40,7 +40,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
                 foreach (var item in list)
                 {
                     //AppRole Liste ulaşıyorum
-                    var responseAppRole = await client.GetAsync($"http://localhost:5288/api/AppRoles{item.AppRoleId}");
+                    var responseAppRole = await client.GetAsync($"http://localhost:5288/api/AppRoles/"+ item.AppRoleId);
                     var appRoleJsonString = await responseAppRole.Content.ReadAsStringAsync();
                     var appRole = JsonSerializer.Deserialize<AppRoleListResponseModel>(appRoleJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
                     item.AppRole = appRole;

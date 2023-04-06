@@ -4,6 +4,9 @@ namespace TeknoramaBackOffice.Core.Domain
 {
     public abstract class BaseEntity
     {
-        public DataStatus Status { get; set; }
+        public DataStatus Status { get; set; } = DataStatus.Inserted;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
     }
 }

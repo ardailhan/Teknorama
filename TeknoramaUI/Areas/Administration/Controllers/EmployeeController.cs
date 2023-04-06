@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Net;
 using System.Net.Http.Headers;
@@ -9,6 +10,7 @@ using TeknoramaUI.Areas.Administration.Models.EmployeeModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class EmployeeController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -36,7 +38,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
                 foreach (var item in list)
                 {
                     //AppRole Liste ulaşıyorum
-                    var responseAppRole = await client.GetAsync($"http://localhost:5288/api/AppRoles{item.AppRoleId}");
+                    var responseAppRole = await client.GetAsync($"http://localhost:5288/api/AppRoles/" + item.AppRoleId);
                     var appRoleJsonString = await responseAppRole.Content.ReadAsStringAsync();
                     var appRole = JsonSerializer.Deserialize<AppRoleListResponseModel>(appRoleJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
                     item.AppRole = appRole;
@@ -69,6 +71,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             else return RedirectToAction("Index", "Home");
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(EmployeeCreateRequestModel model)
         {
             if (ModelState.IsValid)
@@ -85,7 +88,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
         public async Task<IActionResult> Update(int id)
         {
             HttpClient client = CreateClient();
-            var response = await client.GetAsync($"http://localhost:5288/api/Employees/{id}");
+            var response = await client.GetAsync("http://localhost:5288/api/Employees/" + id);
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = await response.Content.ReadAsStringAsync();
@@ -104,6 +107,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
             else return RedirectToAction("Index", "Home");
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(EmployeeUpdateRequestModel model)
         {
             if (ModelState.IsValid)

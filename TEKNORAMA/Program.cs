@@ -24,6 +24,7 @@ builder.Services.AddDbContext<TEKNORAMAContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("conStr"));
 });
 
+//builder.Services.AddHttpContextAccessor(); birþey denedim olmadý
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 builder.Services.AddAutoMapper(opt =>

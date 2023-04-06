@@ -26,6 +26,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.ProductHandlers
                 updatedProduct.CategoryId = request.CategoryId;
                 updatedProduct.SupplierId = request.SupplierId;
                 updatedProduct.Status = request.Status;
+                updatedProduct.ModifiedDate = DateTime.UtcNow;
                 await _repository.UpdateAsync(updatedProduct);
             }
             return Unit.Value;

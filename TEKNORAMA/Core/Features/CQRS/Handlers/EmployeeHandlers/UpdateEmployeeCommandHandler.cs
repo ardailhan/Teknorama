@@ -28,6 +28,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.EmployeeHandlers
                 updatedEmployee.Gender = request.Gender;
                 updatedEmployee.MonthlySales = request.MonthlySales;
                 updatedEmployee.Salary = request.Salary;
+                updatedEmployee.AppRoleId = request.AppRoleId;
                 await _repository.UpdateAsync(updatedEmployee);
             }
             return Unit.Value;
