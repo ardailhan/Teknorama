@@ -23,13 +23,13 @@ namespace TeknoramaBackOffice.Persistance.Context
         public DbSet<Employee> Employees => Set<Employee>();
         public DbSet<EmployeeTerritory> EmployeeTerritories => Set<EmployeeTerritory>();
         public DbSet<Expense> Expenses => Set<Expense>();
-        public DbSet<OrderDetail> OrderDetails => Set<OrderDetail>();
         public DbSet<Message> Messages => Set<Message>();
         public DbSet<Shipper> Shippers => Set<Shipper>();
         public DbSet<Supplier> Suppliers => Set<Supplier>();
         public DbSet<Territory> Territories => Set<Territory>();
         public DbSet<Basket> Baskets => Set<Basket>();
         public DbSet<BasketItem> BasketItems => Set<BasketItem>();
+        public DbSet<CompletedOrder> CompletedOrders => Set<CompletedOrder>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

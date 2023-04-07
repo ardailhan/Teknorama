@@ -40,7 +40,6 @@ builder.Services.AddAutoMapper(opt =>
         new IssueProfile(),
         new MessageProfile(),
         new OrderProfile(),
-        new OrderDetailProfile(),
         new ShipperProfile(),
         new TerritoryProfile(),
         new AppUserProfile(),

@@ -40,12 +40,6 @@ namespace TeknoramaUI.Areas.Administration.Controllers
 
                 foreach (var item in list)
                 {
-                    //AppUser Listlere ulaşıyorum
-                    var responseAppUser = await client.GetAsync("http://localhost:5288/api/AppUsers" + item.AppUserId);
-                    var appUserJsonString = await responseAppUser.Content.ReadAsStringAsync();
-                    var appUser = JsonSerializer.Deserialize<AppUserListResponseModel>(appUserJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
-                    item.AppUser = appUser;
-
                     //Employee Listlere ulaşıyorum
                     var responseEmployee = await client.GetAsync("http://localhost:5288/api/Employees" + item.EmployeeId);
                     var employeeJsonString = await responseEmployee.Content.ReadAsStringAsync();

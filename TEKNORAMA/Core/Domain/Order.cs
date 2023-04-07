@@ -14,7 +14,6 @@ namespace TeknoramaBackOffice.Core.Domain
         public decimal TotalPrice { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.Now;
         public OrderStatus OrderStatus { get; set; } = OrderStatus.Created;
-        public int AppUserId { get; set; }
         public int EmployeeId { get; set; }
         public int ShipperId { get; set; }
         public float? Discount { get; set; }
@@ -25,10 +24,9 @@ namespace TeknoramaBackOffice.Core.Domain
         }
 
         //Navigation Properties
-        public virtual AppUser AppUser { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Shipper Shipper { get; set; }
+        public virtual CompletedOrder CompletedOrder { get; set; }
         public virtual Basket Basket { get; set; }
-        public virtual List<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -9,7 +9,6 @@ namespace TeknoramaBackOffice.Persistance.Configurations.AppUserConfigurations
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
             builder.HasOne(x => x.AppRole).WithMany(x => x.AppUsers).HasForeignKey(x => x.AppRoleId);
-            builder.HasMany(x => x.Orders).WithOne(x => x.AppUser).HasForeignKey(x => x.AppUserId);
             builder.HasMany(x => x.Issues).WithOne(x => x.AppUser).HasForeignKey(x => x.AppUserId);
         }
     }

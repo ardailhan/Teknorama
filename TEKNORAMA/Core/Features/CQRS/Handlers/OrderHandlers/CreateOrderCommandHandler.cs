@@ -26,7 +26,6 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.OrderHandlers
                 TotalPrice = request.TotalPrice,
                 OrderDate = request.OrderDate,
                 OrderStatus = request.OrderStatus,
-                AppUserId = request.AppUserId,
                 EmployeeId = request.EmployeeId,
                 ShipperId = request.ShipperId,
                 Discount = request.Discount,
