@@ -13,7 +13,6 @@ namespace TeknoramaBackOffice.Core.DTOs
         public decimal TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
         public OrderStatus OrderStatus { get; set; }
-        public int AppUserId { get; set; }
         public int EmployeeId { get; set; }
         public int ShipperId { get; set; }
         public float? Discount { get; set; }

@@ -26,7 +26,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.ProductHandlers
                 UnitsInStock = request.UnitsInStock,
                 ImagePath = request.ImagePath,
                 Status = request.Status,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = DateTime.UtcNow
             });
             return Unit.Value;
         }

@@ -1,8 +1,6 @@
-﻿using MediatR;
-
-namespace TeknoramaBackOffice.Core.Features.CQRS.Commands.BasketItemCommands
+﻿namespace TeknoramaUI.Models.BasketItemModel
 {
-    public class UpdateBasketItemCommandRequest : IRequest
+    public class BasketItemUpdateRequestModel
     {
         public int Id { get; set; }
         public int BasketId { get; set; }

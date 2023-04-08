@@ -18,6 +18,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.BasketItemHandlers
         {
             await _repository.CreateAsync(new BasketItem
             {
+                BasketId = request.BasketId,
                 ProductId = request.ProductId,
                 Quantity = request.Quantity
             });

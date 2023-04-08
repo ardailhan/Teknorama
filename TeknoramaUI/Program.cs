@@ -7,7 +7,6 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();// Api controller endpointlerimi yakalamak için eklemeyi yaptým.
 
-
 //Token ayarlamalarý gerçekleþtirilir
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>
 {

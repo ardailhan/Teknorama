@@ -10,6 +10,7 @@ namespace TeknoramaBackOffice.Persistance.Repositories
     {
         private readonly TEKNORAMAContext _teknoContext;
 
+
         public Repository(TEKNORAMAContext teknoContext)
         {
             _teknoContext = teknoContext;
@@ -47,5 +48,7 @@ namespace TeknoramaBackOffice.Persistance.Repositories
         {
             return await _teknoContext.Set<T>().FindAsync(id);
         }
+        
+
     }
 }

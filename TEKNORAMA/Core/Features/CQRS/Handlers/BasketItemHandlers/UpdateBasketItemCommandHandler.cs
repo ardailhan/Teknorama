@@ -19,6 +19,8 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.BasketItemHandlers
             BasketItem updatedBasketItem = await _repository.GetByIdAsync(request.Id);
             if (updatedBasketItem != null) 
             { 
+                updatedBasketItem.BasketId = request.BasketId;
+                updatedBasketItem.ProductId = request.ProductId;
                 updatedBasketItem.Quantity = request.Quantity;
                 await _repository.UpdateAsync(updatedBasketItem);
             }

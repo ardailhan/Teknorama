@@ -8,7 +8,7 @@ namespace TeknoramaBackOffice.Core.Application.Mappings
     {
         public BasketProfile()
         {
-            CreateMap<Basket, BasketItemListDto>().ReverseMap();
+            CreateMap<Basket, BasketListDto>().ReverseMap();
         }
     }
 }

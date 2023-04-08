@@ -2,6 +2,7 @@
 using TeknoramaBackOffice.Core.Domain;
 using TeknoramaBackOffice.Persistance.Configurations.AppUserConfigurations;
 using TeknoramaBackOffice.Persistance.Configurations.BasketConfigurations;
+using TeknoramaBackOffice.Persistance.Configurations.BasketItemConfiguration;
 using TeknoramaBackOffice.Persistance.Configurations.EmployeeConfigurations;
 using TeknoramaBackOffice.Persistance.Configurations.EmployeeTerritoryConfigurations;
 using TeknoramaBackOffice.Persistance.Configurations.ExpenseConfigurations;
@@ -41,6 +42,7 @@ namespace TeknoramaBackOffice.Persistance.Context
             modelBuilder.ApplyConfiguration(new ExpenseConfiguration());
             modelBuilder.ApplyConfiguration(new MessageConfiguration());
             modelBuilder.ApplyConfiguration(new BasketConfiguration());
+            modelBuilder.ApplyConfiguration(new BasketItemConfiguration());
             
             base.OnModelCreating(modelBuilder);
         }

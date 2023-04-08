@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using System.Runtime.CompilerServices;
 using TeknoramaBackOffice.Core.Application.Interfaces;
 using TeknoramaBackOffice.Core.Domain;
 using TeknoramaBackOffice.Core.DTOs;
@@ -20,7 +21,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.BasketHandlers
 
         public async Task<BasketListDto> Handle(GetBasketQueryRequest request, CancellationToken cancellationToken)
         {
-            Basket data = await _repository.GetByFilterAsync(x => x.Id == request.Id);
+            Basket data = await _repository.GetByFilterAsync(x => x.Id == request.Id );
             return _mapper.Map<BasketListDto>(data);
         }
     }

@@ -9,9 +9,6 @@ namespace TeknoramaBackOffice.Core.Domain
         public decimal UnitPrice { get; set; }
         public int UnitsInStock { get; set; }
         public string ImagePath { get; set; }
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
-        public DateTime? ModifiedDate { get; set; }
-        public DateTime? DeletedDate { get; set; }
         public int CategoryId { get; set; }
         public int SupplierId { get; set; }
 
