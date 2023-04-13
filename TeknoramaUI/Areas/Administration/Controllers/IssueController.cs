@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Net;
 using System.Net.Http.Headers;
@@ -7,9 +8,11 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using TeknoramaUI.Areas.Administration.Models.AppuserModel;
 using TeknoramaUI.Areas.Administration.Models.IssueModel;
+using static Microsoft.VisualStudio.Services.Notifications.VssNotificationEvent;
 
 namespace TeknoramaUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class IssueController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

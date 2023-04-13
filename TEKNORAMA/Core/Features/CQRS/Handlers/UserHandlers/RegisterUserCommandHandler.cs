@@ -19,7 +19,7 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.UserHandlers
         {
             await _repository.CreateAsync(new AppUser
             {
-                AppRoleId = (int)UserRole.Member,
+                AppRoleId = (int)RoleType.Member,
                 UserName = request.UserName,
                 Email = request.Email,
                 Password = request.Password,

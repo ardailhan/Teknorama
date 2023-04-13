@@ -1,0 +1,22 @@
+﻿@model TeknoramaUI.Models.BasketItemModel.BasketItemCreateRequestModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>New BasketItem Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.BasketId)
+    @Html.TextBoxFor(x=>x.BasketId, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.ProductId)
+    @Html.TextBoxFor(x=>x.ProductId, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Quantity)
+    @Html.TextBoxFor(x=>x.Quantity, new{@class = "form-control"})
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>
+

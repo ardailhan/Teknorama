@@ -8,7 +8,7 @@ using TeknoramaUI.Areas.Administration.Models.ExpenseModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {
-    [Authorize(Roles = "Admin,AccountingRepresentative")]
+    [Authorize(Roles = "Admin")]
     public class ExpenseController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

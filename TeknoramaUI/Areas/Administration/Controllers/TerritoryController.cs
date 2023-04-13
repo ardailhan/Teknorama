@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
@@ -7,6 +8,7 @@ using TeknoramaUI.Areas.Administration.Models.TerritoryModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TerritoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

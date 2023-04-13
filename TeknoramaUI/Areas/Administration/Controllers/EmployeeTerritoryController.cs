@@ -12,7 +12,7 @@ using TeknoramaUI.Areas.Administration.Models.TerritoryModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {
-    [Authorize(Roles = "Admin,BranchManager")]
+    [Authorize(Roles = "Admin")]
     public class EmployeeTerritoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

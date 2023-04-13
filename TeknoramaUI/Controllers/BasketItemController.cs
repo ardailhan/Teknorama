@@ -44,7 +44,7 @@ namespace TeknoramaUI.Controllers
                     var product = JsonSerializer.Deserialize<ProductListResponseModel>(productJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
                     item.Product = product;
 
-                    //Get Basket
+                    //Get Baskets
                     var responseBasket = await client.GetAsync($"http://localhost:5288/api/Baskets/{item.BasketId}");
                     var basketJsonString = await responseBasket.Content.ReadAsStringAsync();
                     var basket = JsonSerializer.Deserialize<BasketListResponseModel>(basketJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });

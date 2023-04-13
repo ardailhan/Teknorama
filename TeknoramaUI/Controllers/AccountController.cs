@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -9,6 +10,7 @@ using TeknoramaUI.Models;
 
 namespace TeknoramaUI.Controllers
 {
+    //[Area("Administration")]
     public class AccountController : Controller
     {
         //Api ile iletişim kurabilmek için IHttpClientFactory arayüzünü kullanıyorum
@@ -47,6 +49,11 @@ namespace TeknoramaUI.Controllers
                 if (token != null)
                 {
                     var roles = token.Claims.Where(x => x.Type == ClaimTypes.Role).Select(x => x.Value);
+                    //if (roles.Contains("Admin"))
+                    //    {
+                    //        return RedirectToAction("List", "Category", new { area = "Administration" });
+
+                    //    }
                     var claims = token.Claims.ToList();
                     claims.Add(new Claim("accessToken", tokenModel.Token == null ? "" : tokenModel.Token));
 

@@ -11,7 +11,7 @@ using TeknoramaUI.Areas.Administration.Models.ShipperModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {
-    [Authorize(Roles ="Admin,BranchManager")]
+    [Authorize(Roles ="Admin")]
     public class OrderController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

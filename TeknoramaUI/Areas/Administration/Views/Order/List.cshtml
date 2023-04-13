@@ -2,7 +2,7 @@
 @model List<OrderListResponseModel>
 @{
     ViewData["Title"] = "List";
-    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <table class="table table-bordered" style="margin-top:20px">
@@ -34,9 +34,9 @@
                 <th>@item.TotalPrice</th>
                 <th>@item.OrderDate.Date</th>
                 <th>@item.OrderStatus</th>
-                <th>@item.AppUser</th>
-                <th>@item.Employee</th>
-                <th>@item.Shipper</th>
+                <th>@item.AppUser.UserName</th>
+                <th>@item.Employee.FirstName</th>
+                <th>@item.Shipper.CompanyName</th>
             </tr>
         }
     }

@@ -21,15 +21,15 @@ namespace TeknoramaBackOffice.Core.Features.CQRS.Handlers.UserHandlers
         {
             var dto = new CheckUserResponseDto();
 
-            var user = await _appUserRepository.GetByFilterAsync(x => x.UserName.Equals(request.UserName) && x.Password.Equals(request.Password) && x.ConfirmPassword.Equals(request.ConfirmPassword));
+            var user = await _appUserRepository.GetByFilterAsync(x => x.UserName.Equals(request.UserName) && x.Password.Equals(request.Password));
 
             if (user == null) { dto.Active = false; }
             else
             {
                 dto.Active = true;
                 dto.UserName = request.UserName;
-                dto.Password = request.Password;
-                dto.ConfirmPassword = request.ConfirmPassword;
+                //dto.Password = request.Password;
+                //dto.ConfirmPassword = request.ConfirmPassword;
                 dto.Id = user.Id;
                 AppRole role = await _appRoleRepository.GetByFilterAsync(x => x.Id == user.AppRoleId);
                 dto.Role = role.Definition;
