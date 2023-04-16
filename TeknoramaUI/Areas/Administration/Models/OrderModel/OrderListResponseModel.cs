@@ -2,6 +2,7 @@
 using TeknoramaUI.Areas.Administration.Models.AppuserModel;
 using TeknoramaUI.Areas.Administration.Models.EmployeeModel;
 using TeknoramaUI.Areas.Administration.Models.ShipperModel;
+using TeknoramaUI.Models.BasketModel;
 
 namespace TeknoramaUI.Areas.Administration.Models.OrderModel
 {
@@ -17,8 +18,6 @@ namespace TeknoramaUI.Areas.Administration.Models.OrderModel
         public DateTime OrderDate { get; set; } = DateTime.Now;
         public OrderStatus OrderStatus { get; set; } = OrderStatus.Created;
         public float? Discount { get; set; }
-        public int AppUserId { get; set; }
-        public AppUserListResponseModel AppUser { get; set; }
         public int EmployeeId { get; set; }
         public EmployeeListResponseModel Employee { get; set; }
         public int ShipperId { get; set; }

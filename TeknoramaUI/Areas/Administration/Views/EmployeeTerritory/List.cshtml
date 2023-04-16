@@ -8,8 +8,9 @@
 <table class="table table-bordered" style="margin-top:20px">
     <tr>
         <th>Id</th>
-        <th>Employee</th>
-        <th>Territory</th>
+        <th>Employee Name</th>
+        <th>Employee Last Name</th>
+        <th>Territory Description</th>
     </tr>
     @if (Model.Count > 0)
     {
@@ -17,8 +18,9 @@
         {
             <tr>
                 <th>@item.Id</th>
-                <th>@item.EmployeeId</th>
-                <th>@item.TerritoryId</th>
+                <th>@item.Employee.FirstName</th>
+                <th>@item.Employee.LastName</th>
+                <th>@item.Territory.TerritoryDescription</th>
                 <th colspan="1">
                     <a class="btn btn-outline-warning btn-sm" asp-route-id="@item.Id" asp-action="Update" asp-controller="EmployeeTerritory">Update</a>
                 </th>

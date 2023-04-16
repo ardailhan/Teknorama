@@ -10,7 +10,6 @@ using TeknoramaUI.Models;
 
 namespace TeknoramaUI.Controllers
 {
-    //[Area("Administration")]
     public class AccountController : Controller
     {
         //Api ile iletişim kurabilmek için IHttpClientFactory arayüzünü kullanıyorum
@@ -66,7 +65,7 @@ namespace TeknoramaUI.Controllers
                         IsPersistent = true,
                     };
                     await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), auhtProps);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Create", "Basket");
                 }
                 else
                 {

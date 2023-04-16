@@ -58,13 +58,15 @@ namespace TeknoramaUI.Areas.Administration.Controllers
         {
             if (ModelState.IsValid)
             {
-                var client = CreateClient();
-                var requestContent = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
-                var response = await client.PostAsync("http://localhost:5288/api/Expenses", requestContent);
-                return RedirectToAction("List");
+                HttpClient client = CreateClient();
+                StringContent requestContent = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("http://localhost:5288/api/Expenses", requestContent);
+                if (response.IsSuccessStatusCode) return RedirectToAction("List");
+                else return View(model);
             }
             return View(model);
         }
+        [HttpGet]
         public async Task<IActionResult> Update(int id)
         {
             var client = CreateClient();

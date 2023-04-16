@@ -10,6 +10,6 @@ namespace TeknoramaUI.Areas.Administration.Models.ExpenseModel
         [Required(ErrorMessage = "Expense description should be given")]
         public string Description { get; set; }
         public ExpenseType ExpenseType { get; set; }
-        public DateTime PaymentDate { get; set; } = DateTime.Now;
+        public DateTime PaymentDate { get; set; }
     }
 }

@@ -97,7 +97,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ProductCreateRequestModel model)
+        public async Task<IActionResult> Create(ProductCreateRequestModel model)//IWebHostEnvironment webHostEnvironment)
         {
             if (ModelState.IsValid)
             {
@@ -138,7 +138,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(ProductUpdateRequestModel model)
+        public async Task<IActionResult> Update(ProductUpdateRequestModel model)//IWebHostEnvironment webHostEnvironment)
         {
             if (ModelState.IsValid)
             {
@@ -167,10 +167,10 @@ namespace TeknoramaUI.Areas.Administration.Controllers
         {
             HttpClient client = CreateClient();
             //Product ile birlikte resimide silmek için
-            if (!string.IsNullOrEmpty(imagePathName))
-            {
-                FileManager.RemoveImageFromDisk(imagePathName, _webHostEnvironment);
-            }
+            //if (!string.IsNullOrEmpty(imagePathName))
+            //{
+            //    FileManager.RemoveImageFromDisk(imagePathName, _webHostEnvironment);
+            //}
             await client.DeleteAsync($"http://localhost:5288/api/Products/{id}");
             return RedirectToAction("List");
         }

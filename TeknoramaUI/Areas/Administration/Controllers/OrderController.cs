@@ -8,6 +8,7 @@ using TeknoramaUI.Areas.Administration.Models.AppuserModel;
 using TeknoramaUI.Areas.Administration.Models.EmployeeModel;
 using TeknoramaUI.Areas.Administration.Models.OrderModel;
 using TeknoramaUI.Areas.Administration.Models.ShipperModel;
+using TeknoramaUI.Models.BasketModel;
 
 namespace TeknoramaUI.Areas.Administration.Controllers
 {
@@ -52,6 +53,7 @@ namespace TeknoramaUI.Areas.Administration.Controllers
                     var shipperJsonString = await responseShipper.Content.ReadAsStringAsync();
                     var shipper = JsonSerializer.Deserialize<ShipperListResponseModel>(shipperJsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
                     item.Shipper = shipper;
+
                 }
                 return View(list);
             }

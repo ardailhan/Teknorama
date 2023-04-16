@@ -26,7 +26,6 @@ namespace TeknoramaBackOffice.Core.Domain
         //Navigation Properties
         public virtual Employee Employee { get; set; }
         public virtual Shipper Shipper { get; set; }
-        public virtual CompletedOrder CompletedOrder { get; set; }
         public virtual Basket Basket { get; set; }
     }
 }

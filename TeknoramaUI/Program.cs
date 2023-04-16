@@ -50,6 +50,10 @@ app.UseEndpoints(endpoints =>
             name: "areas",
             pattern: "{area=Administration}/{controller=Category}/{action=List}/{id?}"
           );//Area için gerekli endpoint tanýmlamasý
+    //endpoints.MapControllerRoute(
+    //        name: "default",
+    //        pattern: "{controller=Basket}/{action=Create}/{id?}"
+    //      );
     endpoints.MapDefaultControllerRoute();
 });
 

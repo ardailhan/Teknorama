@@ -1,12 +1,13 @@
-﻿@{
+﻿
+@{
+    ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "SignIn";
 }
 
-<h1>Sign In</h1>
+<h1>Register</h1>
 
 <div class="container">
-    <form  asp-action="SignIn" asp-controller="Account" method="post" class="m-5 p-5">
+    <form asp-action="Register" asp-controller="Account" method="post" class="m-5 p-5">
         <div class="mb-3">
             <label class="form-label">
                 Username:
@@ -17,13 +18,15 @@
                 Password:
             </label>
             <input type="password" class="form-control" name="Password" />
+            <br />
+            <label class="form-label">
+                Confirm Password:
+            </label>
+            <input type="password" class="form-control" name="ConfirmPassword" />
         </div>
         <div class="text-danger" asp-validation-summary="All"></div>
         <div class="mb-3">
-            <button class="btn btn-primary" type="submit">Login</button>
-            <br />
-            <br />
-            <a href="/Account/Register" class="btn btn-primary">Register Now !</a>
+            <button class="btn btn-primary" type="submit">Register</button>
         </div>
     </form>
 </div>

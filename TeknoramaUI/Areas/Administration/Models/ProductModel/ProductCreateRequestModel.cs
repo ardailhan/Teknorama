@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TeknoramaBackOffice.Core.Application.Enums;
 
 namespace TeknoramaUI.Areas.Administration.Models.ProductModel
 {
@@ -12,6 +13,7 @@ namespace TeknoramaUI.Areas.Administration.Models.ProductModel
         public int UnitsInStock { get; set; }
         public IFormFile ImagePath { get; set; }
         public string ImagePathName { get; set; }
+        public DataStatus Status { get; set; }
 
         [Required(ErrorMessage = "Product category must not be empty")]
         public int CategoryId { get; set; }

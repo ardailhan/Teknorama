@@ -30,7 +30,6 @@ namespace TeknoramaBackOffice.Persistance.Context
         public DbSet<Territory> Territories => Set<Territory>();
         public DbSet<Basket> Baskets => Set<Basket>();
         public DbSet<BasketItem> BasketItems => Set<BasketItem>();
-        public DbSet<CompletedOrder> CompletedOrders => Set<CompletedOrder>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

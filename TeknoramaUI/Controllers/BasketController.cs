@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Net;
 using System.Net.Http.Headers;
@@ -9,6 +10,7 @@ using TeknoramaUI.Models.BasketModel;
 
 namespace TeknoramaUI.Controllers
 {
+    [Authorize(Roles = "Member")]
     public class BasketController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

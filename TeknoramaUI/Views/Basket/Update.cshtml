@@ -1,0 +1,18 @@
+﻿@model TeknoramaUI.Models.BasketModel.BasketUpdateRequestModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Basket Update Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.Id)
+    @Html.TextBoxFor(x=>x.Id, new{@class = "form-control"})
+    <br />
+    @Html.LabelFor(x=>x.AppUserId)
+    @Html.TextBoxFor(x=>x.AppUserId, new{@class = "form-control"})
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>
